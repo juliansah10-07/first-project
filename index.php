@@ -26,6 +26,8 @@
     <link rel="stylesheet" href="App/plugins/daterangepicker/daterangepicker.css">
     <!-- summernote -->
     <link rel="stylesheet" href="App/App/plugins/summernote/summernote-bs4.min.css">
+    <!-- Icon Bootsrap 5 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -92,37 +94,37 @@
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <li class="nav-item">
-                            <a href="pages/widgets.html" class="nav-link">
-                                <i class="nav-icon fas fa-th"></i>
-                                <p>
+                            <a href="tabel_barang.php" class="nav-link">
+                                <i class="bi bi-bag-fill"></i>
+                                <p style="margin-left: 10px;">
                                     Tabel Barang
                                 </p>
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="pages/widgets.html" class="nav-link">
-                                <i class="nav-icon fas fa-th"></i>
-                                <p>
+                            <a href="barang_masuk.php" class="nav-link">
+                                <i class="bi bi-arrow-up-circle-fill"></i>
+                                <p style="margin-left: 10px;">
                                     Detail Barang Masuk
                                 </p>
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="pages/widgets.html" class="nav-link">
-                                <i class="nav-icon fas fa-th"></i>
-                                <p>
+                            <a href="barang_keluar.php" class="nav-link">
+                                <i class="bi bi-arrow-down-circle-fill"></i>
+                                <p style="margin-left: 10px;">
                                     Detail Barang Keluar
                                 </p>
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="pages/widgets.html" class="nav-link">
-                                <i class="nav-icon fas fa-th"></i>
-                                <p>
-                                    Pemasukan dan Pengeluaran
+                            <a href="pemasukan_pengeluaran.php" class="nav-link">
+                                <i class="bi bi-union"></i>
+                                <p style="margin-left: 10px;">
+                                    Pemasukan Pengeluaran
                                 </p>
                             </a>
                         </li>

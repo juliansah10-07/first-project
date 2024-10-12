@@ -124,7 +124,7 @@
                             <a href="pemasukan_pengeluaran.php" class="nav-link">
                                 <i class="bi bi-union"></i>
                                 <p style="margin-left: 10px;">
-                                    Pemasukan Pengeluaran
+                                    Detail Keuangan
                                 </p>
                             </a>
                         </li>

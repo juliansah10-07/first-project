@@ -20,7 +20,7 @@
   <div class="login-box">
     <div class="card card-outline card-primary">
       <div class="card-header text-center">
-        <a href="App/index2.html" class="h1"><b>Admin</b>LTE</a>
+        <a href="App/index2.html" class="h1"><b>X</b>Market</a>
       </div>
       <div class="card-body">
         <p class="login-box-msg">You forgot your password? Here you can easily retrieve a new password.</p>
@@ -33,6 +33,22 @@
               </div>
             </div>
           </div>
+          <div class="input-group mb-3">
+            <input type="password" class="form-control" placeholder="New Password">
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <ion-icon name="lock-closed"></ion-icon>
+              </div>
+            </div>
+          </div>
+          <div class="input-group mb-3">
+            <input type="password" class="form-control" placeholder="Confirm New Password">
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <ion-icon name="lock-closed"></ion-icon>
+              </div>
+            </div>
+          </div>
           <div class="row">
             <div class="col-12">
               <button type="submit" class="btn btn-primary btn-block">Request new password</button>
@@ -41,7 +57,7 @@
           </div>
         </form>
         <p class="mt-3 mb-1">
-          <a href="login.php">Login</a>
+          <a href="login.php"> Login </a>
         </p>
       </div>
       <!-- /.login-card-body -->
@@ -55,6 +71,9 @@
   <script src="App/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
   <!-- AdminLTE App -->
   <script src="App/dist/js/adminlte.min.js"></script>
+  <!-- icon -->
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 
 </html>

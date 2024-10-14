@@ -2,7 +2,7 @@
 
 function koneksi()
 {
-  return mysqli_connect("localhost", "root", "", "first_project");
+  return mysqli_connect("localhost", "root", "", "xmarket");
 }
 
 function query(string $query): array
@@ -10,6 +10,10 @@ function query(string $query): array
   $koneksi = koneksi();
 
   $result = mysqli_query($koneksi, $query);
+
+  if (mysqli_num_rows($result) == 1) {
+    return mysqli_fetch_assoc($result);
+  }
 
   $rows = [];
   while ($row = mysqli_fetch_assoc($result)) {
@@ -22,7 +26,7 @@ function query(string $query): array
 
 
 // CRUD Tabel Barang
-function tambahBarang($data)
+function tambahBarang($data): int
 {
   $koneksi = koneksi();
 
@@ -37,27 +41,27 @@ function tambahBarang($data)
   return mysqli_affected_rows($koneksi);
 }
 
-function hapusBarang($id)
+function hapusBarang($id): int
 {
   $koneksi = koneksi();
 
   $query = "DELETE FROM barang WHERE id_barang = $id";
   mysqli_query($koneksi, $query);
 
-  return $koneksi;
+  return mysqli_affected_rows($koneksi);
 }
 
-function updateBarang($data)
+function ubahBarang($data): int
 {
   $koneksi = koneksi();
 
-  $id = $data["id_barang"];
+  $id = $data["id"];
   $namaBarang = htmlspecialchars($data["nama_barang"]);
   $jumlahBarang = htmlspecialchars($data["jumlah_barang"]);
   $jenisBarang = htmlspecialchars($data["jenis_barang"]);
   $hargaBarang = htmlspecialchars($data["harga_barang"]);
 
-  $query = "UPDATE INTO barang SET nama_barang = '$namaBarang', jumlah_barang = $jumlahBarang, jenis_barang = '$jenisBarang', harga_barang = $hargaBarang WHERE id_barang = $id";
+  $query = "UPDATE barang SET nama_barang = '$namaBarang', jumlah_barang = $jumlahBarang, jenis_barang = '$jenisBarang', harga_barang = $hargaBarang WHERE id_barang = $id";
   mysqli_query($koneksi, $query);
 
   return mysqli_affected_rows($koneksi);

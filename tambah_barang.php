@@ -1,3 +1,19 @@
+<?php
+
+require_once "functions.php";
+
+if (isset($_POST["tambah"])) {
+  if (tambahBarang($_POST) > 1) {
+    header("Location: tabel_barang.php");
+    exit;
+  } else {
+    header("Location: tabel_barang.php");
+    exit;
+  }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -143,7 +159,7 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form action="" method="post">
+                <form action="" method="post" id="quickForm">
                   <div class="card-body">
                     <div class="form-group">
                       <label for="nama_barang">Nama Barang</label>
@@ -164,7 +180,7 @@
                   </div>
                   <!-- /.card-body -->
                   <div class="card-footer">
-                    <button type="submit" class="btn btn-primary">Tambah</button>
+                    <button type="submit" class="btn btn-primary" name="tambah">Tambah</button>
                   </div>
                 </form>
               </div>
@@ -213,34 +229,38 @@
   <script>
     $(function() {
       $.validator.setDefaults({
-        submitHandler: function() {
-          alert("Form successful submitted!");
-        }
+        // submitHandler: function() {
+        //   alert("Form successful submitted!");
+        // }
       });
       $('#quickForm').validate({
         rules: {
-          email: {
-            required: true,
-            email: true,
-          },
-          password: {
-            required: true,
-            minlength: 5
-          },
-          terms: {
+          nama_barang: {
             required: true
           },
+          jumlah_barang: {
+            required: true
+          },
+          jenis_barang: {
+            required: true
+          },
+          harga_barang: {
+            required: true
+          }
         },
         messages: {
-          email: {
-            required: "Please enter a email address",
-            email: "Please enter a valid email address"
+          nama_barang: {
+            required: "Tolong Masukan Nama Barang Terlebih Dahulu"
           },
-          password: {
-            required: "Please provide a password",
-            minlength: "Your password must be at least 5 characters long"
+          jumlah_barang: {
+            required: "Tolong Masukan Jumlah Barang Terlebih Dahulu"
           },
-          terms: "Please accept our terms"
+          jenis_barang: {
+            required: "Tolong Masukan Jenis Barang Terlebih Dahulu"
+          },
+          harga_barang: {
+            required: "Tolong Masukan Harga Barang Terlebih Dahulu"
+          }
         },
         errorElement: 'span',
         errorPlacement: function(error, element) {

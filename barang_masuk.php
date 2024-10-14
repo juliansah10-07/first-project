@@ -141,6 +141,13 @@
       <!-- Main content -->
       <section class="content">
         <div class="container-fluid">
+          <div class="row mb-3">
+            <div class="col-12">
+              <!-- Tombol Tambah Data -->
+              <a href="" class="btn btn-md btn-primary">Tambah Data</a>
+              <!-- Akhir tombol tambah -->
+            </div>
+          </div>
           <div class="row">
             <div class="col-12">
               <div class="card">

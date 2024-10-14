@@ -21,14 +21,14 @@
         <!-- /.login-logo -->
         <div class="card card-outline card-primary">
             <div class="card-header text-center">
-                <a href="App/index2.html" class="h1"><b>Login</b>Admin</a>
+                <a href="App/index2.html" class="h1"><b>Login </b>Admin</a>
             </div>
             <div class="card-body">
-                <p class="login-box-msg">Sign in to start your session</p>
+                <p class="login-box-msg">Log in to start your session</p>
 
                 <form action="App/index3.html" method="post">
                     <div class="input-group mb-3">
-                        <input type="email" class="form-control" placeholder="Email">
+                        <input type="email" class="form-control" placeholder="Nomor Induk Pegawai">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <ion-icon name="person-outline"></ion-icon>

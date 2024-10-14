@@ -20,7 +20,7 @@
   <div class="login-box">
     <div class="card card-outline card-primary">
       <div class="card-header text-center">
-        <a href="App/index2.html" class="h1"><b>X</b>Market</a>
+        <a href="App/index.php" class="h1"><b>X</b>Market</a>
       </div>
       <div class="card-body">
         <p class="login-box-msg">You forgot your password? Here you can easily retrieve a new password.</p>
@@ -51,7 +51,7 @@
           </div>
           <div class="row">
             <div class="col-12">
-              <button type="submit" class="btn btn-primary btn-block">Request new password</button>
+              <button type="submit" class="btn btn-primary btn-block"> Confirm </button>
             </div>
             <!-- /.col -->
           </div>

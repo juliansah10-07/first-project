@@ -1,3 +1,22 @@
+<?php
+
+require_once "functions.php";
+
+if (isset($_POST["ubah"])) {
+  if (ubahBarang($_POST) > 0) {
+    header("Location: tabel_barang.php");
+    exit;
+  } else {
+    header("Location: tabel_barang.php");
+    exit;
+  }
+}
+
+$id = $_GET["id"];
+$barang = ambilSatuData("SELECT * FROM barang WHERE id_barang = $id");
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -103,10 +122,10 @@
             </li>
 
             <li class="nav-item">
-              <a href="pemasukan_pengeluaran.php" class="nav-link">
+              <a href="keuangan.php" class="nav-link">
                 <i class="bi bi-union"></i>
                 <p style="margin-left: 10px;">
-                  Pemasukan Pengeluaran
+                  Detail Keuangan
                 </p>
               </a>
             </li>
@@ -124,7 +143,7 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>Tambah</h1>
+              <h1>Ubah</h1>
             </div>
           </div>
         </div><!-- /.container-fluid -->
@@ -139,32 +158,33 @@
               <!-- jquery validation -->
               <div class="card card-primary">
                 <div class="card-header">
-                  <h3 class="card-title">Form Tambah Barang</h3>
+                  <h3 class="card-title">Form Ubah Barang</h3>
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form action="" method="post">
+                <form action="" method="post" id="quickForm">
+                  <input type="hidden" name="id" value="<?= $barang["id_barang"]; ?>">
                   <div class="card-body">
                     <div class="form-group">
                       <label for="nama_barang">Nama Barang</label>
-                      <input type="text" name="nama_barang" class="form-control" id="nama_barang" placeholder="Masukan Nama Barang">
+                      <input type="text" name="nama_barang" class="form-control" id="nama_barang" placeholder="Masukan Nama Barang" value="<?= $barang["nama_barang"]; ?>">
                     </div>
                     <div class="form-group">
                       <label for="jumlah_barang">Jumlah Barang</label>
-                      <input type="number" name="jumlah_barang" class="form-control" id="jumlah_barang" placeholder="Masukan Jumlah Barang">
+                      <input type="number" name="jumlah_barang" class="form-control" id="jumlah_barang" placeholder="Masukan Jumlah Barang" value="<?= $barang["jumlah_barang"]; ?>">
                     </div>
                     <div class="form-group">
                       <label for="jenis_barang">Jenis Barang</label>
-                      <input type="text" name="jenis_barang" class="form-control" id="jenis_barang" placeholder="Masukan Jenis Barang">
+                      <input type="text" name="jenis_barang" class="form-control" id="jenis_barang" placeholder="Masukan Jenis Barang" value="<?= $barang["jenis_barang"]; ?>">
                     </div>
                     <div class="form-group">
                       <label for="harga_barang">Harga Barang</label>
-                      <input type="number" name="harga_barang" class="form-control" id="harga_barang" placeholder="Masukan Harga Barang">
+                      <input type="number" name="harga_barang" class="form-control" id="harga_barang" placeholder="Masukan Harga Barang" value="<?= $barang["harga_barang"]; ?>">
                     </div>
                   </div>
                   <!-- /.card-body -->
                   <div class="card-footer">
-                    <button type="submit" class="btn btn-primary">Tambah</button>
+                    <button type="submit" class="btn btn-primary" name="ubah">Ubah</button>
                   </div>
                 </form>
               </div>
@@ -184,7 +204,10 @@
     </div>
     <!-- /.content-wrapper -->
     <footer class="main-footer">
-      <strong>Copyright &copy; 2024 <a href="index.php">X Market</a>.</strong> All rights reserved.
+      <div class="float-right d-none d-sm-block">
+        <b>Version</b> 3.2.0
+      </div>
+      <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
     </footer>
 
     <!-- Control Sidebar -->
@@ -210,34 +233,38 @@
   <script>
     $(function() {
       $.validator.setDefaults({
-        submitHandler: function() {
-          alert("Form successful submitted!");
-        }
+        // submitHandler: function() {
+        //   alert("Form successful submitted!");
+        // }
       });
       $('#quickForm').validate({
         rules: {
-          email: {
-            required: true,
-            email: true,
-          },
-          password: {
-            required: true,
-            minlength: 5
-          },
-          terms: {
+          nama_barang: {
             required: true
           },
+          jumlah_barang: {
+            required: true
+          },
+          jenis_barang: {
+            required: true
+          },
+          harga_barang: {
+            required: true
+          }
         },
         messages: {
-          email: {
-            required: "Please enter a email address",
-            email: "Please enter a valid email address"
+          nama_barang: {
+            required: "Tolong Masukan Nama Barang Terlebih Dahulu"
           },
-          password: {
-            required: "Please provide a password",
-            minlength: "Your password must be at least 5 characters long"
+          jumlah_barang: {
+            required: "Tolong Masukan Jumlah Barang Terlebih Dahulu"
           },
-          terms: "Please accept our terms"
+          jenis_barang: {
+            required: "Tolong Masukan Jenis Barang Terlebih Dahulu"
+          },
+          harga_barang: {
+            required: "Tolong Masukan Harga Barang Terlebih Dahulu"
+          }
         },
         errorElement: 'span',
         errorPlacement: function(error, element) {

@@ -1,3 +1,11 @@
+<?php
+
+require_once "functions.php";
+
+$barang = query("SELECT * FROM barang");
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,11 +30,6 @@
 
 <body class="hold-transition sidebar-mini">
   <div class="wrapper">
-
-    <!-- Preloader -->
-    <div class="preloader flex-column justify-content-center align-items-center">
-      <img class="animation__shake" src="App/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
-    </div>
 
     <!-- Navbar -->
     <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -84,7 +87,7 @@
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <li class="nav-item">
-              <a href="tabel_barang.php" class="nav-link">
+              <a href="tabel_barang.php" class="nav-link active">
                 <i class="bi bi-bag-fill"></i>
                 <p style="margin-left: 10px;">
                   Tabel Barang
@@ -111,7 +114,7 @@
             </li>
 
             <li class="nav-item">
-              <a href="pemasukan_pengeluaran.php" class="nav-link">
+              <a href="keuangan.php" class="nav-link">
                 <i class="bi bi-union"></i>
                 <p style="margin-left: 10px;">
                   Detail Keuangan
@@ -146,7 +149,7 @@
           <div class="row mb-3">
             <div class="col-12">
               <!-- Tombol Tambah Data -->
-              <a href="" class="btn btn-md btn-primary">Tambah Data</a>
+              <a href="tambah_barang.php" class="btn btn-md btn-primary">Tambah Data</a>
               <!-- Akhir tombol tambah -->
             </div>
           </div>
@@ -165,16 +168,18 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>Chiki</td>
-                        <td>100</td>
-                        <td>Snack</td>
-                        <td>5.000</td>
-                        <td>
-                          <a href="" class="btn btn-success btn-sm">Ubah</a> |
-                          <a href="" class="btn btn-danger btn-sm">Hapus</a>
-                        </td>
-                      </tr>
+                      <?php foreach ($barang as $brg) : ?>
+                        <tr>
+                          <td><?= $brg["nama_barang"]; ?></td>
+                          <td><?= $brg["jumlah_barang"] ?></td>
+                          <td><?= $brg["jenis_barang"] ?></td>
+                          <td><?= $brg["harga_barang"] ?></td>
+                          <td>
+                            <a href="ubah_barang.php?id=<?= $brg["id_barang"]; ?>" class="btn btn-success btn-sm">Ubah</a> |
+                            <a href="hapus_barang.php?id=<?= $brg["id_barang"]; ?>" class="btn btn-danger btn-sm">Hapus</a>
+                          </td>
+                        </tr>
+                      <?php endforeach; ?>
                     </tbody>
                     <tfoot>
                       <tr>

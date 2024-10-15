@@ -1,3 +1,19 @@
+<?php
+
+require_once "functions.php";
+
+if (isset($_POST["tambah"])) {
+  if (tambahBarang($_POST) > 0) {
+    header("Location: tabel_barang.php");
+    exit;
+  } else {
+    header("Location: tabel_barang.php");
+    exit;
+  }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -103,10 +119,10 @@
             </li>
 
             <li class="nav-item">
-              <a href="pemasukan_pengeluaran.php" class="nav-link">
+              <a href="keuangan.php" class="nav-link">
                 <i class="bi bi-union"></i>
                 <p style="margin-left: 10px;">
-                  Pemasukan Pengeluaran
+                  Detail Keuangan
                 </p>
               </a>
             </li>
@@ -143,7 +159,7 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form action="" method="post">
+                <form action="" method="post" id="quickForm">
                   <div class="card-body">
                     <div class="form-group">
                       <label for="nama_barang">Nama Barang</label>
@@ -164,7 +180,7 @@
                   </div>
                   <!-- /.card-body -->
                   <div class="card-footer">
-                    <button type="submit" class="btn btn-primary">Tambah</button>
+                    <button type="submit" class="btn btn-primary" name="tambah">Tambah</button>
                   </div>
                 </form>
               </div>
@@ -184,7 +200,10 @@
     </div>
     <!-- /.content-wrapper -->
     <footer class="main-footer">
-      <strong>Copyright &copy; 2024 <a href="index.php">X Market</a>.</strong> All rights reserved.
+      <div class="float-right d-none d-sm-block">
+        <b>Version</b> 3.2.0
+      </div>
+      <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
     </footer>
 
     <!-- Control Sidebar -->
@@ -210,34 +229,38 @@
   <script>
     $(function() {
       $.validator.setDefaults({
-        submitHandler: function() {
-          alert("Form successful submitted!");
-        }
+        // submitHandler: function() {
+        //   alert("Form successful submitted!");
+        // }
       });
       $('#quickForm').validate({
         rules: {
-          email: {
-            required: true,
-            email: true,
-          },
-          password: {
-            required: true,
-            minlength: 5
-          },
-          terms: {
+          nama_barang: {
             required: true
           },
+          jumlah_barang: {
+            required: true
+          },
+          jenis_barang: {
+            required: true
+          },
+          harga_barang: {
+            required: true
+          }
         },
         messages: {
-          email: {
-            required: "Please enter a email address",
-            email: "Please enter a valid email address"
+          nama_barang: {
+            required: "Tolong Masukan Nama Barang Terlebih Dahulu"
           },
-          password: {
-            required: "Please provide a password",
-            minlength: "Your password must be at least 5 characters long"
+          jumlah_barang: {
+            required: "Tolong Masukan Jumlah Barang Terlebih Dahulu"
           },
-          terms: "Please accept our terms"
+          jenis_barang: {
+            required: "Tolong Masukan Jenis Barang Terlebih Dahulu"
+          },
+          harga_barang: {
+            required: "Tolong Masukan Harga Barang Terlebih Dahulu"
+          }
         },
         errorElement: 'span',
         errorPlacement: function(error, element) {

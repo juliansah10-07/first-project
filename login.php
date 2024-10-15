@@ -21,12 +21,12 @@
         <!-- /.login-logo -->
         <div class="card card-outline card-primary">
             <div class="card-header text-center">
-                <a href="App/index2.html" class="h1"><b>Login </b>Admin</a>
+                <h1> <b>Login </b>Admin </h1>
             </div>
             <div class="card-body">
                 <p class="login-box-msg">Log in to start your session</p>
 
-                <form action="App/index3.html" method="post">
+                <form action="index.php" method="post">
                     <div class="input-group mb-3">
                         <input type="email" class="form-control" placeholder="Nomor Induk Pegawai">
                         <div class="input-group-append">
@@ -45,7 +45,7 @@
                     </div>
                     <div class="row">
                         <!-- /.col -->
-                        <div class="col-4">
+                        <div class="col-12">
                             <button type="submit" class="btn btn-primary btn-block">Login</button>
                         </div>
                         <!-- /.col -->

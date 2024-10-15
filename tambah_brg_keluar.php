@@ -2,7 +2,15 @@
 
 require_once "functions.php";
 
-$barang_keluar = query("SELECT * FROM barang_keluar");
+if (isset($_POST["tambah"])) {
+  if (tambah_brg_keluar($_POST) > 0) {
+    header("Location: barang_keluar.php");
+    exit;
+  } else {
+    header("Location: barang_keluar.php");
+    exit;
+  }
+}
 
 ?>
 
@@ -12,16 +20,12 @@ $barang_keluar = query("SELECT * FROM barang_keluar");
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Barang Keluar</title>
+  <title>AdminLTE 3 | Validation Form</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="App/plugins/fontawesome-free/css/all.min.css">
-  <!-- DataTables -->
-  <link rel="stylesheet" href="App/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
-  <link rel="stylesheet" href="App/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
-  <link rel="stylesheet" href="App/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="App/dist/css/adminlte.min.css">
   <!-- Icon Bootsrap 5 -->
@@ -30,7 +34,6 @@ $barang_keluar = query("SELECT * FROM barang_keluar");
 
 <body class="hold-transition sidebar-mini">
   <div class="wrapper">
-
     <!-- Navbar -->
     <nav class="main-header navbar navbar-expand navbar-white navbar-light">
       <!-- Left navbar links -->
@@ -54,10 +57,12 @@ $barang_keluar = query("SELECT * FROM barang_keluar");
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
       <!-- Brand Logo -->
+      <!-- Brand Logo -->
       <a href="index.php" class="brand-link">
         <img src="img/logo_minimarket.jpeg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light">Market</span>
       </a>
+
 
       <!-- Sidebar -->
       <div class="sidebar">
@@ -105,7 +110,7 @@ $barang_keluar = query("SELECT * FROM barang_keluar");
             </li>
 
             <li class="nav-item">
-              <a href="barang_keluar.php" class="nav-link active">
+              <a href="barang_keluar.php" class="nav-link">
                 <i class="bi bi-arrow-down-circle-fill"></i>
                 <p style="margin-left: 10px;">
                   Detail Barang Keluar
@@ -117,7 +122,7 @@ $barang_keluar = query("SELECT * FROM barang_keluar");
               <a href="keuangan.php" class="nav-link">
                 <i class="bi bi-union"></i>
                 <p style="margin-left: 10px;">
-                  Detail Keuangan
+                  Detail Keuanagan
                 </p>
               </a>
             </li>
@@ -135,7 +140,7 @@ $barang_keluar = query("SELECT * FROM barang_keluar");
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>Data Barang Keluar</h1>
+              <h1>Tambah</h1>
             </div>
           </div>
         </div><!-- /.container-fluid -->
@@ -144,73 +149,69 @@ $barang_keluar = query("SELECT * FROM barang_keluar");
       <!-- Main content -->
       <section class="content">
         <div class="container-fluid">
-          <div class="row mb-3">
-            <div class="col-12">
-              <!-- Tombol Tambah Data -->
-              <a href="tambah_brg_keluar.php" class="btn btn-md btn-primary">Tambah Data</a>
-              <!-- Akhir tombol tambah -->
-            </div>
-          </div>
           <div class="row">
-            <div class="col-12">
-              <div class="card">
-                <div class="card-body">
-                  <table id="example1" class="table table-bordered table-striped">
-                    <thead>
-                      <tr>
-                        <th>Tanggal</th>
-                        <th>Nama Barang</th>
-                        <th>Jenis Barang</th>
-                        <th>Jumlah Barang</th>
-                        <th>Total Harga</th>
-                        <th>Harga Barang</th>
-                        <th>Aksi</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <?php foreach ($barang_keluar as $brg_keluar) : ?>
-                        <tr>
-                          <td><?= $brg_keluar["tanggal"]; ?></td>
-                          <td><?= $brg_keluar["nama_barang"]; ?></td>
-                          <td><?= $brg_keluar["jenis_barang"]; ?></td>
-                          <td><?= $brg_keluar["jumlah_barang"]; ?></td>
-                          <td><?= $brg_keluar["total_harga"]; ?></td>
-                          <td><?= $brg_keluar["harga_barang"]; ?></td>
-                          <td>
-                            <a href="ubah_brg_keluar.php?id=<?= $brg_keluar["id_brg_keluar"]; ?>" class="btn btn-success btn-sm">Ubah</a> |
-                            <a href="hapus_brg_keluar.php?id=<?= $brg_keluar["id_brg_keluar"]; ?>" class="btn btn-danger btn-sm">Hapus</a>
-                          </td>
-                        </tr>
-                      <?php endforeach; ?>
-                    </tbody>
-                    <tfoot>
-                      <tr>
-                        <th>Tanggal</th>
-                        <th>Nama Barang</th>
-                        <th>Jenis Barang</th>
-                        <th>Jumlah Barang</th>
-                        <th>Total Harga</th>
-                        <th>Harga Barang</th>
-                        <th>Aksi</th>
-                      </tr>
-                    </tfoot>
-                  </table>
+            <!-- left column -->
+            <div class="col-md-12">
+              <!-- jquery validation -->
+              <div class="card card-primary">
+                <div class="card-header">
+                  <h3 class="card-title">Form Tambah Barang Keluar</h3>
                 </div>
-                <!-- /.card-body -->
+                <!-- /.card-header -->
+                <!-- form start -->
+                <form action="" method="post" id="quickForm">
+                  <div class="card-body">
+                    <div class="form-group">
+                      <label for="tanggal">Tanggal</label>
+                      <input type="date" name="tanggal" class="form-control" id="tanggal">
+                    </div>
+                    <div class="form-group">
+                      <label for="nama_barang">Nama Barang</label>
+                      <input type="text" name="nama_barang" class="form-control" id="nama_barang" placeholder="Masukan Nama Barang">
+                    </div>
+                    <div class="form-group">
+                      <label for="jenis_barang">Jenis Barang</label>
+                      <input type="text" name="jenis_barang" class="form-control" id="jenis_barang" placeholder="Masukan Jenis Barang">
+                    </div>
+                    <div class="form-group">
+                      <label for="jumlah_barang">Jumlah Barang</label>
+                      <input type="number" name="jumlah_barang" class="form-control" id="jumlah_barang" placeholder="Masukan Jumlah Barang">
+                    </div>
+                    <div class="form-group">
+                      <label for="total_harga">Total Harga</label>
+                      <input type="number" name="total_harga" class="form-control" id="total_harga" placeholder="Masukan Total Harga">
+                    </div>
+                    <div class="form-group">
+                      <label for="harga_barang">Harga Barang</label>
+                      <input type="number" name="harga_barang" class="form-control" id="harga_barang" placeholder="Masukan Harga Barang">
+                    </div>
+                  </div>
+                  <!-- /.card-body -->
+                  <div class="card-footer">
+                    <button type="submit" class="btn btn-primary" name="tambah">Tambah</button>
+                  </div>
+                </form>
               </div>
               <!-- /.card -->
             </div>
-            <!-- /.col -->
+            <!--/.col (left) -->
+            <!-- right column -->
+            <div class="col-md-6">
+
+            </div>
+            <!--/.col (right) -->
           </div>
           <!-- /.row -->
-        </div>
-        <!-- /.container-fluid -->
+        </div><!-- /.container-fluid -->
       </section>
       <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
     <footer class="main-footer">
-      <strong>Copyright &copy; 2024 <a href="index.php">X Market</a>.</strong> All rights reserved.
+      <div class="float-right d-none d-sm-block">
+        <b>Version</b> 3.2.0
+      </div>
+      <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
     </footer>
 
     <!-- Control Sidebar -->
@@ -225,19 +226,9 @@ $barang_keluar = query("SELECT * FROM barang_keluar");
   <script src="App/plugins/jquery/jquery.min.js"></script>
   <!-- Bootstrap 4 -->
   <script src="App/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <!-- DataTables  & Plugins -->
-  <script src="App/plugins/datatables/jquery.dataTables.min.js"></script>
-  <script src="App/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-  <script src="App/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-  <script src="App/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-  <script src="App/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
-  <script src="App/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
-  <script src="App/plugins/jszip/jszip.min.js"></script>
-  <script src="App/plugins/pdfmake/pdfmake.min.js"></script>
-  <script src="App/plugins/pdfmake/vfs_fonts.js"></script>
-  <script src="App/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
-  <script src="App/plugins/datatables-buttons/js/buttons.print.min.js"></script>
-  <script src="App/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+  <!-- jquery-validation -->
+  <script src="App/plugins/jquery-validation/jquery.validate.min.js"></script>
+  <script src="App/plugins/jquery-validation/additional-methods.min.js"></script>
   <!-- AdminLTE App -->
   <script src="App/dist/js/adminlte.min.js"></script>
   <!-- AdminLTE for demo purposes -->
@@ -245,20 +236,63 @@ $barang_keluar = query("SELECT * FROM barang_keluar");
   <!-- Page specific script -->
   <script>
     $(function() {
-      $("#example1").DataTable({
-        "responsive": true,
-        "lengthChange": false,
-        "autoWidth": false,
-        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-      }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-      $('#example2').DataTable({
-        "paging": true,
-        "lengthChange": false,
-        "searching": false,
-        "ordering": true,
-        "info": true,
-        "autoWidth": false,
-        "responsive": true,
+      $.validator.setDefaults({
+        // submitHandler: function() {
+        //   alert("Form successful submitted!");
+        // }
+      });
+      $('#quickForm').validate({
+        rules: {
+          nama_barang: {
+            required: true
+          },
+          jumlah_barang: {
+            required: true
+          },
+          jenis_barang: {
+            required: true
+          },
+          harga_barang: {
+            required: true
+          },
+          tanggal: {
+            required: true
+          },
+          total_harga: {
+            required: true
+          }
+        },
+        messages: {
+          nama_barang: {
+            required: "Tolong Masukan Nama Barang Terlebih Dahulu"
+          },
+          jumlah_barang: {
+            required: "Tolong Masukan Jumlah Barang Terlebih Dahulu"
+          },
+          jenis_barang: {
+            required: "Tolong Masukan Jenis Barang Terlebih Dahulu"
+          },
+          harga_barang: {
+            required: "Tolong Masukan Harga Barang Terlebih Dahulu"
+          },
+          tanggal: {
+            required: "Tolong Masukan Tanggal Terlebih Dahulu"
+          },
+          total_harga: {
+            required: "Tolong Masukan Total Harga Terlebih Dahulu"
+          }
+        },
+        errorElement: 'span',
+        errorPlacement: function(error, element) {
+          error.addClass('invalid-feedback');
+          element.closest('.form-group').append(error);
+        },
+        highlight: function(element, errorClass, validClass) {
+          $(element).addClass('is-invalid');
+        },
+        unhighlight: function(element, errorClass, validClass) {
+          $(element).removeClass('is-invalid');
+        }
       });
     });
   </script>

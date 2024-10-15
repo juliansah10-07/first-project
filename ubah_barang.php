@@ -2,8 +2,8 @@
 
 require_once "functions.php";
 
-if (isset($_POST["tambah"])) {
-  if (ubahBarang($_POST) > 1) {
+if (isset($_POST["ubah"])) {
+  if (ubahBarang($_POST) > 0) {
     header("Location: tabel_barang.php");
     exit;
   } else {
@@ -13,7 +13,7 @@ if (isset($_POST["tambah"])) {
 }
 
 $id = $_GET["id"];
-$barang = query("SELECT * FROM barang WHERE id_barang = $id");
+$barang = ambilSatuData("SELECT * FROM barang WHERE id_barang = $id");
 
 ?>
 
@@ -122,10 +122,10 @@ $barang = query("SELECT * FROM barang WHERE id_barang = $id");
             </li>
 
             <li class="nav-item">
-              <a href="pemasukan_pengeluaran.php" class="nav-link">
+              <a href="keuangan.php" class="nav-link">
                 <i class="bi bi-union"></i>
                 <p style="margin-left: 10px;">
-                  Pemasukan Pengeluaran
+                  Detail Keuangan
                 </p>
               </a>
             </li>
@@ -184,7 +184,7 @@ $barang = query("SELECT * FROM barang WHERE id_barang = $id");
                   </div>
                   <!-- /.card-body -->
                   <div class="card-footer">
-                    <button type="submit" class="btn btn-primary" name="tambah">Tambah</button>
+                    <button type="submit" class="btn btn-primary" name="ubah">Ubah</button>
                   </div>
                 </form>
               </div>

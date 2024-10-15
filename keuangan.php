@@ -2,7 +2,7 @@
 
 require_once "functions.php";
 
-$barang_keluar = query("SELECT * FROM barang_keluar");
+$keuangan = query("SELECT * FROM keuangan");
 
 ?>
 
@@ -12,7 +12,7 @@ $barang_keluar = query("SELECT * FROM barang_keluar");
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Barang Keluar</title>
+  <title>Keuangan</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -105,7 +105,7 @@ $barang_keluar = query("SELECT * FROM barang_keluar");
             </li>
 
             <li class="nav-item">
-              <a href="barang_keluar.php" class="nav-link active">
+              <a href="barang_keluar.php" class="nav-link">
                 <i class="bi bi-arrow-down-circle-fill"></i>
                 <p style="margin-left: 10px;">
                   Detail Barang Keluar
@@ -114,7 +114,7 @@ $barang_keluar = query("SELECT * FROM barang_keluar");
             </li>
 
             <li class="nav-item">
-              <a href="keuangan.php" class="nav-link">
+              <a href="keuangan.php" class="nav-link active">
                 <i class="bi bi-union"></i>
                 <p style="margin-left: 10px;">
                   Detail Keuangan
@@ -135,7 +135,7 @@ $barang_keluar = query("SELECT * FROM barang_keluar");
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>Data Barang Keluar</h1>
+              <h1>Data Keuangan</h1>
             </div>
           </div>
         </div><!-- /.container-fluid -->
@@ -147,7 +147,7 @@ $barang_keluar = query("SELECT * FROM barang_keluar");
           <div class="row mb-3">
             <div class="col-12">
               <!-- Tombol Tambah Data -->
-              <a href="tambah_brg_keluar.php" class="btn btn-md btn-primary">Tambah Data</a>
+              <a href="tambah_keuangan.php" class="btn btn-md btn-primary">Tambah Data</a>
               <!-- Akhir tombol tambah -->
             </div>
           </div>
@@ -159,26 +159,22 @@ $barang_keluar = query("SELECT * FROM barang_keluar");
                     <thead>
                       <tr>
                         <th>Tanggal</th>
-                        <th>Nama Barang</th>
-                        <th>Jenis Barang</th>
-                        <th>Jumlah Barang</th>
-                        <th>Total Harga</th>
-                        <th>Harga Barang</th>
+                        <th>Pemasukan</th>
+                        <th>Pengeluaran</th>
+                        <th>Keuntungan</th>
                         <th>Aksi</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <?php foreach ($barang_keluar as $brg_keluar) : ?>
+                      <?php foreach ($keuangan as $ke) : ?>
                         <tr>
-                          <td><?= $brg_keluar["tanggal"]; ?></td>
-                          <td><?= $brg_keluar["nama_barang"]; ?></td>
-                          <td><?= $brg_keluar["jenis_barang"]; ?></td>
-                          <td><?= $brg_keluar["jumlah_barang"]; ?></td>
-                          <td><?= $brg_keluar["total_harga"]; ?></td>
-                          <td><?= $brg_keluar["harga_barang"]; ?></td>
+                          <td><?= $ke["tanggal"]; ?></td>
+                          <td><?= $ke["total_pemasukan"]; ?></td>
+                          <td><?= $ke["total_pengeluaran"]; ?></td>
+                          <td><?= $ke["total_keuntungan"]; ?></td>
                           <td>
-                            <a href="ubah_brg_keluar.php?id=<?= $brg_keluar["id_brg_keluar"]; ?>" class="btn btn-success btn-sm">Ubah</a> |
-                            <a href="hapus_brg_keluar.php?id=<?= $brg_keluar["id_brg_keluar"]; ?>" class="btn btn-danger btn-sm">Hapus</a>
+                            <a href="ubah_keuangan.php?id=<?= $ke["id_keuangan"]; ?>" class="btn btn-success btn-sm">Ubah</a> |
+                            <a href="hapus_keuangan.php?id=<?= $ke["id_keuangan"]; ?>" class="btn btn-danger btn-sm">Hapus</a>
                           </td>
                         </tr>
                       <?php endforeach; ?>
@@ -186,11 +182,9 @@ $barang_keluar = query("SELECT * FROM barang_keluar");
                     <tfoot>
                       <tr>
                         <th>Tanggal</th>
-                        <th>Nama Barang</th>
-                        <th>Jenis Barang</th>
-                        <th>Jumlah Barang</th>
-                        <th>Total Harga</th>
-                        <th>Harga Barang</th>
+                        <th>Pemasukan</th>
+                        <th>Pengeluaran</th>
+                        <th>Keuntungan</th>
                         <th>Aksi</th>
                       </tr>
                     </tfoot>

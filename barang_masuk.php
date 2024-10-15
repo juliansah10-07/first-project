@@ -1,3 +1,11 @@
+<?php
+
+require_once "functions.php";
+
+$barang_masuk = query("SELECT * FROM barang_masuk");
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,11 +30,6 @@
 
 <body class="hold-transition sidebar-mini">
   <div class="wrapper">
-
-    <!-- Preloader -->
-    <div class="preloader flex-column justify-content-center align-items-center">
-      <img class="animation__shake" src="App/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
-    </div>
 
     <!-- Navbar -->
     <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -93,7 +96,7 @@
             </li>
 
             <li class="nav-item">
-              <a href="barang_masuk.php" class="nav-link">
+              <a href="barang_masuk.php" class="nav-link active">
                 <i class="bi bi-arrow-up-circle-fill"></i>
                 <p style="margin-left: 10px;">
                   Detail Barang Masuk
@@ -111,7 +114,7 @@
             </li>
 
             <li class="nav-item">
-              <a href="pemasukan_pengeluaran.php" class="nav-link">
+              <a href="keuangan.php" class="nav-link">
                 <i class="bi bi-union"></i>
                 <p style="margin-left: 10px;">
                   Detail Keuangan
@@ -144,7 +147,7 @@
           <div class="row mb-3">
             <div class="col-12">
               <!-- Tombol Tambah Data -->
-              <a href="" class="btn btn-md btn-primary">Tambah Data</a>
+              <a href="tambah_brg_masuk.php" class="btn btn-md btn-primary">Tambah Data</a>
               <!-- Akhir tombol tambah -->
             </div>
           </div>
@@ -160,23 +163,25 @@
                         <th>Jenis Barang</th>
                         <th>Jumlah Barang</th>
                         <th>Total Harga</th>
-                        <th>Harga</th>
+                        <th>Harga Barang</th>
                         <th>Aksi</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>20-09-2024</td>
-                        <td>Sabun Batang</td>
-                        <td>Sabun</td>
-                        <td>200</td>
-                        <td>1.000.000</td>
-                        <td>2.000</td>
-                        <td>
-                          <a href="" class="btn btn-success btn-sm">Ubah</a> |
-                          <a href="" class="btn btn-danger btn-sm">Hapus</a>
-                        </td>
-                      </tr>
+                      <?php foreach ($barang_masuk as $brg_masuk) : ?>
+                        <tr>
+                          <td><?= $brg_masuk["tanggal"]; ?></td>
+                          <td><?= $brg_masuk["nama_barang"]; ?></td>
+                          <td><?= $brg_masuk["jenis_barang"]; ?></td>
+                          <td><?= $brg_masuk["jumlah_barang"]; ?></td>
+                          <td><?= $brg_masuk["total_harga"]; ?></td>
+                          <td><?= $brg_masuk["harga_barang"]; ?></td>
+                          <td>
+                            <a href="ubah_brg_masuk.php?id=<?= $brg_masuk["id_brg_masuk"]; ?>" class="btn btn-success btn-sm">Ubah</a> |
+                            <a href="hapus_brg_masuk.php?id=<?= $brg_masuk["id_brg_masuk"]; ?>" class="btn btn-danger btn-sm">Hapus</a>
+                          </td>
+                        </tr>
+                      <?php endforeach; ?>
                     </tbody>
                     <tfoot>
                       <tr>
@@ -185,7 +190,7 @@
                         <th>Jenis Barang</th>
                         <th>Jumlah Barang</th>
                         <th>Total Harga</th>
-                        <th>Harga</th>
+                        <th>Harga Barang</th>
                         <th>Aksi</th>
                       </tr>
                     </tfoot>

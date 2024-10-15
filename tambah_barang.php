@@ -3,7 +3,7 @@
 require_once "functions.php";
 
 if (isset($_POST["tambah"])) {
-  if (tambahBarang($_POST) > 1) {
+  if (tambahBarang($_POST) > 0) {
     header("Location: tabel_barang.php");
     exit;
   } else {
@@ -119,10 +119,10 @@ if (isset($_POST["tambah"])) {
             </li>
 
             <li class="nav-item">
-              <a href="pemasukan_pengeluaran.php" class="nav-link">
+              <a href="keuangan.php" class="nav-link">
                 <i class="bi bi-union"></i>
                 <p style="margin-left: 10px;">
-                  Pemasukan Pengeluaran
+                  Detail Keuangan
                 </p>
               </a>
             </li>

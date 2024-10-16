@@ -1,3 +1,39 @@
+<?php
+require 'functions.php';
+session_start();
+
+if (isset($_SESSION['login'])) {
+    header("Location: index.php");
+    exit();
+}
+
+
+if (isset($_POST['login'])) {
+
+    $koneksi = koneksi();
+
+    $nip = $_POST['nip'];
+    $password = $_POST['password'];
+
+    $result = mysqli_query($koneksi, "SELECT * FROM user WHERE nip = '$nip'");
+
+    if (mysqli_num_rows($result) === 1) {
+        $row = mysqli_fetch_assoc($result);
+        if (password_verify($password, $row["password"])) {
+            // set session
+            $_SESSION["login"] = true;
+            header("Location:index.php");
+            exit();
+        }
+    }
+
+    $error = true;
+}
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,9 +62,9 @@
             <div class="card-body">
                 <p class="login-box-msg">Log in to start your session</p>
 
-                <form action="index.php" method="post">
+                <form action="" method="post">
                     <div class="input-group mb-3">
-                        <input type="email" class="form-control" placeholder="Nomor Induk Pegawai">
+                        <input type="text" name="nip" class="form-control" placeholder="Nomor Induk Pegawai">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <ion-icon name="person-outline"></ion-icon>
@@ -36,17 +72,24 @@
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="password" class="form-control" placeholder="Password">
+                        <input type="password" name="password" class="form-control" placeholder="Password">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <ion-icon name="lock-closed-outline"></ion-icon>
                             </div>
                         </div>
                     </div>
+
+                    <!-- error pass or username -->
+                    <?php
+                    if (isset($error)) : ?>
+                        <p style="color: red; font-style: italic;">NIP / Password Salah</p>
+                    <?php endif; ?>
+
                     <div class="row">
                         <!-- /.col -->
                         <div class="col-12">
-                            <button type="submit" class="btn btn-primary btn-block">Login</button>
+                            <button type="submit" name="login" class="btn btn-primary btn-block">Login</button>
                         </div>
                         <!-- /.col -->
                     </div>

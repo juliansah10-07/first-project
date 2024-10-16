@@ -20,7 +20,7 @@ if (isset($_POST["tambah"])) {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Validation Form</title>
+  <title>Tambah Barang Keluar</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -110,7 +110,7 @@ if (isset($_POST["tambah"])) {
             </li>
 
             <li class="nav-item">
-              <a href="barang_keluar.php" class="nav-link">
+              <a href="barang_keluar.php" class="nav-link active">
                 <i class="bi bi-arrow-down-circle-fill"></i>
                 <p style="margin-left: 10px;">
                   Detail Barang Keluar

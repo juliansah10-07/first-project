@@ -23,7 +23,7 @@ $barang = ambilSatuData("SELECT * FROM barang WHERE id_barang = $id");
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Validation Form</title>
+  <title>Ubah Barang</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -95,7 +95,7 @@ $barang = ambilSatuData("SELECT * FROM barang WHERE id_barang = $id");
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <li class="nav-item">
-              <a href="tabel_barang.php" class="nav-link">
+              <a href="tabel_barang.php" class="nav-link active">
                 <i class="bi bi-bag-fill"></i>
                 <p style="margin-left: 10px;">
                   Tabel Barang

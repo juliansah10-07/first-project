@@ -23,7 +23,7 @@ $keuangan = ambilSatuData("SELECT * FROM keuangan WHERE id_keuangan = $id");
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Validation Form</title>
+  <title>Ubah Keuangan</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -122,7 +122,7 @@ $keuangan = ambilSatuData("SELECT * FROM keuangan WHERE id_keuangan = $id");
             </li>
 
             <li class="nav-item">
-              <a href="keuangan.php" class="nav-link">
+              <a href="keuangan.php" class="nav-link active">
                 <i class="bi bi-union"></i>
                 <p style="margin-left: 10px;">
                   Detail Keuangan
@@ -143,7 +143,7 @@ $keuangan = ambilSatuData("SELECT * FROM keuangan WHERE id_keuangan = $id");
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>Uabah</h1>
+              <h1>Ubah</h1>
             </div>
           </div>
         </div><!-- /.container-fluid -->

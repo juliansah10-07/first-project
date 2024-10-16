@@ -24,7 +24,7 @@ $brg_masuk = ambilSatuData("SELECT * FROM barang_masuk WHERE id_brg_masuk = $id"
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Validation Form</title>
+  <title>Ubah Barang Masuk</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -105,7 +105,7 @@ $brg_masuk = ambilSatuData("SELECT * FROM barang_masuk WHERE id_brg_masuk = $id"
             </li>
 
             <li class="nav-item">
-              <a href="barang_masuk.php" class="nav-link">
+              <a href="barang_masuk.php" class="nav-link active">
                 <i class="bi bi-arrow-up-circle-fill"></i>
                 <p style="margin-left: 10px;">
                   Detail Barang Masuk

@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require_once "functions.php";
 
 $barang = query("SELECT * FROM barang");
@@ -30,11 +30,6 @@ $barang = query("SELECT * FROM barang");
 
 <body class="hold-transition sidebar-mini">
   <div class="wrapper">
-
-    <!-- Preloader -->
-    <div class="preloader flex-column justify-content-center align-items-center">
-      <img class="animation__shake" src="App/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
-    </div>
 
     <!-- Navbar -->
     <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -92,7 +87,7 @@ $barang = query("SELECT * FROM barang");
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <li class="nav-item">
-              <a href="tabel_barang.php" class="nav-link">
+              <a href="tabel_barang.php" class="nav-link active">
                 <i class="bi bi-bag-fill"></i>
                 <p style="margin-left: 10px;">
                   Tabel Barang
@@ -119,7 +114,7 @@ $barang = query("SELECT * FROM barang");
             </li>
 
             <li class="nav-item">
-              <a href="pemasukan_pengeluaran.php" class="nav-link">
+              <a href="keuangan.php" class="nav-link">
                 <i class="bi bi-union"></i>
                 <p style="margin-left: 10px;">
                   Detail Keuangan
@@ -146,7 +141,25 @@ $barang = query("SELECT * FROM barang");
         </div><!-- /.container-fluid -->
       </section>
 
-
+      <!-- Pesan CRUD -->
+      <div class="container-fluid">
+        <?php if (isset($_SESSION["berhasil"])) : ?>
+          <div class="alert alert-success alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <h5><i class="icon fas fa-check"></i> Berhasil</h5>
+            Data Barang Berhasil Di <?= $_SESSION["berhasil"]; ?>
+          </div>
+          <?php unset($_SESSION["berhasil"]); ?>
+        <?php elseif (isset($_SESSION["error"])) : ?>
+          <div class="alert alert-danger alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <h5><i class="icon fas fa-ban"></i> Gagal</h5>
+            Data Barang Gagal Di <?= $_SESSION["error"]; ?>
+          </div>
+          <?php unset($_SESSION["error"]); ?>
+        <?php endif; ?>
+      </div>
+      <!-- Akhir Pesan CRUD -->
 
       <!-- Main content -->
       <section class="content">
@@ -181,7 +194,7 @@ $barang = query("SELECT * FROM barang");
                           <td><?= $brg["harga_barang"] ?></td>
                           <td>
                             <a href="ubah_barang.php?id=<?= $brg["id_barang"]; ?>" class="btn btn-success btn-sm">Ubah</a> |
-                            <a href="hapus_barang.php?id=<?= $brg["id_barang"]; ?>" class="btn btn-danger btn-sm">Hapus</a>
+                            <a href="hapus_barang.php?id=<?= $brg["id_barang"]; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Anda Yakin Ingin Menghapus?');">Hapus</a>
                           </td>
                         </tr>
                       <?php endforeach; ?>

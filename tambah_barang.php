@@ -1,12 +1,14 @@
 <?php
-
+session_start();
 require_once "functions.php";
 
 if (isset($_POST["tambah"])) {
-  if (tambahBarang($_POST) > 1) {
+  if (tambahBarang($_POST) > 0) {
+    $_SESSION["berhasil"] = "Tambahkan";
     header("Location: tabel_barang.php");
     exit;
   } else {
+    $_SESSION["error"] = "Tambahkan";
     header("Location: tabel_barang.php");
     exit;
   }
@@ -20,7 +22,7 @@ if (isset($_POST["tambah"])) {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Validation Form</title>
+  <title>Tambah Barang</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -92,7 +94,7 @@ if (isset($_POST["tambah"])) {
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <li class="nav-item">
-              <a href="tabel_barang.php" class="nav-link">
+              <a href="tabel_barang.php" class="nav-link active">
                 <i class="bi bi-bag-fill"></i>
                 <p style="margin-left: 10px;">
                   Tabel Barang
@@ -119,10 +121,10 @@ if (isset($_POST["tambah"])) {
             </li>
 
             <li class="nav-item">
-              <a href="pemasukan_pengeluaran.php" class="nav-link">
+              <a href="keuangan.php" class="nav-link">
                 <i class="bi bi-union"></i>
                 <p style="margin-left: 10px;">
-                  Pemasukan Pengeluaran
+                  Detail Keuangan
                 </p>
               </a>
             </li>
@@ -200,10 +202,7 @@ if (isset($_POST["tambah"])) {
     </div>
     <!-- /.content-wrapper -->
     <footer class="main-footer">
-      <div class="float-right d-none d-sm-block">
-        <b>Version</b> 3.2.0
-      </div>
-      <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+      <strong>Copyright &copy; 2024 <a href="index.php">X Market</a>.</strong> All rights reserved.
     </footer>
 
     <!-- Control Sidebar -->

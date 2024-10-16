@@ -1,19 +1,21 @@
 <?php
-
+session_start();
 require_once "functions.php";
 
-if (isset($_POST["tambah"])) {
-  if (ubahBarang($_POST) > 1) {
+if (isset($_POST["ubah"])) {
+  if (ubahBarang($_POST) > 0) {
+    $_SESSION["berhasil"] = "Ubah";
     header("Location: tabel_barang.php");
     exit;
   } else {
+    $_SESSION["error"] = "Ubah";
     header("Location: tabel_barang.php");
     exit;
   }
 }
 
 $id = $_GET["id"];
-$barang = query("SELECT * FROM barang WHERE id_barang = $id");
+$barang = ambilSatuData("SELECT * FROM barang WHERE id_barang = $id");
 
 ?>
 
@@ -23,7 +25,7 @@ $barang = query("SELECT * FROM barang WHERE id_barang = $id");
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Validation Form</title>
+  <title>Ubah Barang</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -95,7 +97,7 @@ $barang = query("SELECT * FROM barang WHERE id_barang = $id");
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <li class="nav-item">
-              <a href="tabel_barang.php" class="nav-link">
+              <a href="tabel_barang.php" class="nav-link active">
                 <i class="bi bi-bag-fill"></i>
                 <p style="margin-left: 10px;">
                   Tabel Barang
@@ -122,10 +124,10 @@ $barang = query("SELECT * FROM barang WHERE id_barang = $id");
             </li>
 
             <li class="nav-item">
-              <a href="pemasukan_pengeluaran.php" class="nav-link">
+              <a href="keuangan.php" class="nav-link">
                 <i class="bi bi-union"></i>
                 <p style="margin-left: 10px;">
-                  Pemasukan Pengeluaran
+                  Detail Keuangan
                 </p>
               </a>
             </li>
@@ -184,7 +186,7 @@ $barang = query("SELECT * FROM barang WHERE id_barang = $id");
                   </div>
                   <!-- /.card-body -->
                   <div class="card-footer">
-                    <button type="submit" class="btn btn-primary" name="tambah">Tambah</button>
+                    <button type="submit" class="btn btn-primary" name="ubah">Ubah</button>
                   </div>
                 </form>
               </div>
@@ -204,10 +206,7 @@ $barang = query("SELECT * FROM barang WHERE id_barang = $id");
     </div>
     <!-- /.content-wrapper -->
     <footer class="main-footer">
-      <div class="float-right d-none d-sm-block">
-        <b>Version</b> 3.2.0
-      </div>
-      <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+      <strong>Copyright &copy; 2024 <a href="index.php">X Market</a>.</strong> All rights reserved.
     </footer>
 
     <!-- Control Sidebar -->

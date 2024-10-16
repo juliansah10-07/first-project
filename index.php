@@ -133,7 +133,7 @@ if (!isset($_SESSION["login"])) {
                         </li>
 
                         <li class="nav-item">
-                            <a href="pemasukan_pengeluaran.php" class="nav-link">
+                            <a href="keuangan.php" class="nav-link">
                                 <i class="bi bi-union"></i>
                                 <p style="margin-left: 10px;">
                                     Detail Keuangan

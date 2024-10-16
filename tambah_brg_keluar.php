@@ -1,12 +1,14 @@
 <?php
-
+session_start();
 require_once "functions.php";
 
 if (isset($_POST["tambah"])) {
   if (tambah_brg_keluar($_POST) > 0) {
+    $_SESSION["berhasil"] = "Tambahkan";
     header("Location: barang_keluar.php");
     exit;
   } else {
+    $_SESSION["error"] = "Tambahkan";
     header("Location: barang_keluar.php");
     exit;
   }

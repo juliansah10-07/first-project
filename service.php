@@ -33,7 +33,7 @@
           <a href="pesan.php" class="nav-link">Pesan</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="service.php" class="nav-link">Service</a>
+          <a href="service.php" class="nav-link active">Service</a>
         </li>
       </ul>
 
@@ -169,7 +169,7 @@
             <div class="col-5 text-center d-flex align-items-center justify-content-center">
               <div class="">
                 <h2><strong>X</strong> Market</h2>
-                  Phone: +1 234 56789012
+                Phone: +1 234 56789012
                 </p>
               </div>
             </div>

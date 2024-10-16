@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require_once "functions.php";
 
 $barang_masuk = query("SELECT * FROM barang_masuk");
@@ -141,6 +141,26 @@ $barang_masuk = query("SELECT * FROM barang_masuk");
         </div><!-- /.container-fluid -->
       </section>
 
+      <!-- Pesan CRUD -->
+      <div class="container-fluid">
+        <?php if (isset($_SESSION["berhasil"])) : ?>
+          <div class="alert alert-success alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <h5><i class="icon fas fa-check"></i> Berhasil</h5>
+            Data Barang Masuk Berhasil Di <?= $_SESSION["berhasil"]; ?>
+          </div>
+          <?php unset($_SESSION["berhasil"]); ?>
+        <?php elseif (isset($_SESSION["error"])) : ?>
+          <div class="alert alert-danger alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <h5><i class="icon fas fa-ban"></i> Gagal</h5>
+            Data Barang Masuk Gagal Di <?= $_SESSION["error"]; ?>
+          </div>
+          <?php unset($_SESSION["error"]); ?>
+        <?php endif; ?>
+      </div>
+      <!-- Akhir Pesan CRUD -->
+
       <!-- Main content -->
       <section class="content">
         <div class="container-fluid">
@@ -178,7 +198,7 @@ $barang_masuk = query("SELECT * FROM barang_masuk");
                           <td><?= $brg_masuk["harga_barang"]; ?></td>
                           <td>
                             <a href="ubah_brg_masuk.php?id=<?= $brg_masuk["id_brg_masuk"]; ?>" class="btn btn-success btn-sm">Ubah</a> |
-                            <a href="hapus_brg_masuk.php?id=<?= $brg_masuk["id_brg_masuk"]; ?>" class="btn btn-danger btn-sm">Hapus</a>
+                            <a href="hapus_brg_masuk.php?id=<?= $brg_masuk["id_brg_masuk"]; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Anda Yakin Ingin Menghapus?');">Hapus</a>
                           </td>
                         </tr>
                       <?php endforeach; ?>

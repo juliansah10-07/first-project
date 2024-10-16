@@ -1,12 +1,14 @@
 <?php
-
+session_start();
 require_once "functions.php";
 
 if (isset($_POST["ubah"])) {
   if (ubahBarang($_POST) > 0) {
+    $_SESSION["berhasil"] = "Ubah";
     header("Location: tabel_barang.php");
     exit;
   } else {
+    $_SESSION["error"] = "Ubah";
     header("Location: tabel_barang.php");
     exit;
   }

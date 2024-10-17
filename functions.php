@@ -11,10 +11,6 @@ function query(string $query): array
 
   $result = mysqli_query($koneksi, $query);
 
-  if (mysqli_num_rows($result) == 1) {
-    return mysqli_fetch_assoc($result);
-  }
-
   $rows = [];
   while ($row = mysqli_fetch_assoc($result)) {
     $rows[] = $row;
@@ -23,7 +19,14 @@ function query(string $query): array
   return $rows;
 }
 
+function ambilSatuData(string $query): array
+{
+  $koneksi =  koneksi();
 
+  $result = mysqli_query($koneksi, $query);
+
+  return mysqli_fetch_assoc($result);
+}
 
 // CRUD Tabel Barang
 function tambahBarang($data): int

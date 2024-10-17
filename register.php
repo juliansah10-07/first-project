@@ -6,9 +6,10 @@ if (isset($_POST["register"])) {
   if (register($_POST) > 0) {
     echo "<script>
         alert('Registrasi Berhasil');
+        document.location.href = 'login.php';
         </script>";
   } else {
-    echo mysqli_error($koneksi);
+    echo mysqli_error(koneksi());
   }
 }
 
@@ -43,7 +44,7 @@ if (isset($_POST["register"])) {
       </div>
       <div class="card-body">
         <p class="login-box-msg">Tambahkan anggota baru</p>
-        <form action="login.php" method="post">
+        <form action="" method="post">
           <div class="input-group mb-3">
             <input type="text" name="nip" class="form-control" placeholder="Nomor Induk Kepegawaian">
             <div class="input-group-append">

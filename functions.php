@@ -67,7 +67,144 @@ function ubahBarang($data): int
   return mysqli_affected_rows($koneksi);
 }
 
+// CRUD Tabel Barang Masuk
 
+function tambah_brg_masuk($data)
+{
+  $koneksi = koneksi();
+
+  $tanggal = htmlspecialchars($data["tanggal"]);
+  $namaBarang = htmlspecialchars($data["nama_barang"]);
+  $jenisBarang = htmlspecialchars($data["jenis_barang"]);
+  $jumlahBarang = htmlspecialchars($data["jumlah_barang"]);
+  $totalHarga = htmlspecialchars($data["total_harga"]);
+  $hargaBarang = htmlspecialchars($data["harga_barang"]);
+
+  $query = "INSERT INTO barang_masuk VALUES (null, '$tanggal', '$namaBarang', '$jenisBarang', $jumlahBarang, $hargaBarang, $totalHarga)";
+  mysqli_query($koneksi, $query);
+
+  return mysqli_affected_rows($koneksi);
+}
+
+function hapus_brg_masuk($id)
+{
+  $koneksi = koneksi();
+
+  $query = "DELETE FROM barang_masuk WHERE id_brg_masuk = $id";
+  mysqli_query($koneksi, $query);
+
+  return mysqli_affected_rows($koneksi);
+}
+
+function ubah_brg_masuk($data)
+{
+  $koneksi = koneksi();
+
+  $id = $data["id"];
+  $tanggal = htmlspecialchars($data["tanggal"]);
+  $namaBarang = htmlspecialchars($data["nama_barang"]);
+  $jenisBarang = htmlspecialchars($data["jenis_barang"]);
+  $jumlahBarang = htmlspecialchars($data["jumlah_barang"]);
+  $totalHarga = htmlspecialchars($data["total_harga"]);
+  $hargaBarang = htmlspecialchars($data["harga_barang"]);
+
+  $query = "UPDATE barang_masuk SET tanggal = '$tanggal', nama_barang = '$namaBarang', jenis_barang = '$jenisBarang', jumlah_barang = $jumlahBarang, total_harga = $totalHarga, harga_barang = $hargaBarang WHERE id_brg_masuk = $id";
+  mysqli_query($koneksi, $query);
+
+  return mysqli_affected_rows($koneksi);
+}
+
+
+// CRUD Tabel Barang Keluar 
+
+function tambah_brg_keluar($data)
+{
+  $koneksi = koneksi();
+
+  $tanggal = htmlspecialchars($data["tanggal"]);
+  $namaBarang = htmlspecialchars($data["nama_barang"]);
+  $jenisBarang = htmlspecialchars($data["jenis_barang"]);
+  $jumlahBarang = htmlspecialchars($data["jumlah_barang"]);
+  $totalHarga = htmlspecialchars($data["total_harga"]);
+  $hargaBarang = htmlspecialchars($data["harga_barang"]);
+
+  $query = "INSERT INTO barang_keluar VALUES (null, '$tanggal', '$namaBarang', '$jenisBarang', $jumlahBarang, $hargaBarang, $totalHarga)";
+  mysqli_query($koneksi, $query);
+
+  return mysqli_affected_rows($koneksi);
+}
+
+function hapus_brg_keluar($id)
+{
+  $koneksi = koneksi();
+
+  $query = "DELETE FROM barang_keluar WHERE id_brg_keluar = $id";
+  mysqli_query($koneksi, $query);
+
+  return mysqli_affected_rows($koneksi);
+}
+
+function ubah_brg_keluar($data)
+{
+  $koneksi = koneksi();
+
+  $id = $data["id"];
+  $tanggal = htmlspecialchars($data["tanggal"]);
+  $namaBarang = htmlspecialchars($data["nama_barang"]);
+  $jenisBarang = htmlspecialchars($data["jenis_barang"]);
+  $jumlahBarang = htmlspecialchars($data["jumlah_barang"]);
+  $totalHarga = htmlspecialchars($data["total_harga"]);
+  $hargaBarang = htmlspecialchars($data["harga_barang"]);
+
+  $query = "UPDATE barang_keluar SET tanggal = '$tanggal', nama_barang = '$namaBarang', jenis_barang = '$jenisBarang', jumlah_barang = $jumlahBarang, total_harga = $totalHarga, harga_barang = $hargaBarang WHERE id_brg_keluar = $id";
+  mysqli_query($koneksi, $query);
+
+  return mysqli_affected_rows($koneksi);
+}
+
+
+// CRUD Tabel Keuangan
+
+function tambah_keuangan($data)
+{
+  $koneksi = koneksi();
+
+  $tanggal = $data["tanggal"];
+  $pemasukan = $data["total_pemasukan"];
+  $pengeluaran = $data["total_pengeluaran"];
+  $keuntungan = $data["total_keuntungan"];
+
+  $query = "INSERT INTO keuangan VALUES (null, '$tanggal', $pemasukan, $pengeluaran, $keuntungan)";
+  mysqli_query($koneksi, $query);
+
+  return mysqli_affected_rows($koneksi);
+}
+
+function hapus_keuangan($id)
+{
+  $koneksi = koneksi();
+
+  $query = "DELETE FROM keuangan WHERE id_keuangan = $id";
+  mysqli_query($koneksi, $query);
+
+  return mysqli_affected_rows($koneksi);
+}
+
+function ubah_keuangan($data)
+{
+  $koneksi = koneksi();
+
+  $id = $data["id"];
+  $tanggal = $data["tanggal"];
+  $pemasukan = $data["total_pemasukan"];
+  $pengeluaran = $data["total_pengeluaran"];
+  $keuntungan = $data["total_keuntungan"];
+
+  $query = "UPDATE keuangan SET tanggal = '$tanggal', total_pemasukan = $pemasukan, total_pengeluaran = $pengeluaran, total_keuntungan = $keuntungan WHERE id_keuangan = $id";
+  mysqli_query($koneksi, $query);
+
+  return mysqli_affected_rows($koneksi);
+}
 
 // Function Registrasi yang berjalan di register.php
 function register($data)

@@ -61,12 +61,17 @@ if (!isset($_SESSION["login"])) {
                     <a href="index.php" class="nav-link active">Home</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="pesan.php" class="nav-link">Pesan</a>
-                </li>
-                <li class="nav-item d-none d-sm-inline-block">
                     <a href="service.php" class="nav-link">Service</a>
                 </li>
             </ul>
+
+            <!-- Right navbar links -->
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a href="logout.php" class="nav-link" style="color: red;">Log out</a>
+                </li>
+            </ul>
+
         </nav>
         <!-- /.navbar -->
 

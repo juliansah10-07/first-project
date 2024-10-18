@@ -42,9 +42,6 @@ $keuangan = query("SELECT * FROM keuangan");
           <a href="index.php" class="nav-link">Home</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="pesan.php" class="nav-link">Pesan</a>
-        </li>
-        <li class="nav-item d-none d-sm-inline-block">
           <a href="service.php" class="nav-link">Service</a>
         </li>
       </ul>

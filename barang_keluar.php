@@ -42,11 +42,7 @@ $barang_keluar = query("SELECT * FROM barang_keluar");
           <a href="index.php" class="nav-link">Home</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-<<<<<<< HEAD
           <a href="calender.php" class="nav-link">Calender</a>
-=======
-          <a href="service.php" class="nav-link">Service</a>
->>>>>>> 7eecbd1549be1d39ab4e9e429cb4ed3e2903623e
         </li>
       </ul>
     </nav>

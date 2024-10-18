@@ -35,31 +35,6 @@
           <a href="calender.php" class="nav-link active">Calender</a>
         </li>
       </ul>
-
-      <!-- Right navbar links -->
-      <ul class="navbar-nav ml-auto">
-        <!-- Navbar Search -->
-        <li class="nav-item">
-          <a class="nav-link" data-widget="navbar-search" href="#" role="button">
-            <i class="fas fa-search"></i>
-          </a>
-          <div class="navbar-search-block">
-            <form class="form-inline">
-              <div class="input-group input-group-sm">
-                <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-                <div class="input-group-append">
-                  <button class="btn btn-navbar" type="submit">
-                    <i class="fas fa-search"></i>
-                  </button>
-                  <button class="btn btn-navbar" type="button" data-widget="navbar-search">
-                    <i class="fas fa-times"></i>
-                  </button>
-                </div>
-              </div>
-            </form>
-          </div>
-        </li>
-
     </nav>
     <!-- /.navbar -->
 
@@ -149,12 +124,6 @@
             <div class="col-sm-6">
               <h1>Calender</h1>
             </div>
-            <div class="col-sm-6">
-              <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                <li class="breadcrumb-item active">Calender</li>
-              </ol>
-            </div>
           </div>
         </div><!-- /.container-fluid -->
       </section>
@@ -172,11 +141,11 @@
                   <div class="card-body">
                     <!-- the events -->
                     <div id="external-events">
-                      <div class="external-event bg-success">Lunch</div>
-                      <div class="external-event bg-warning">Go home</div>
-                      <div class="external-event bg-info">Do homework</div>
-                      <div class="external-event bg-primary">Work on UI design</div>
-                      <div class="external-event bg-danger">Sleep tight</div>
+                      <div class="external-event bg-success">Pemasukan</div>
+                      <div class="external-event bg-warning">Libur</div>
+                      <div class="external-event bg-info">Peningkatan</div>
+                      <div class="external-event bg-primary">Keuntungan</div>
+                      <div class="external-event bg-danger">Kerugian</div>
                       <div class="checkbox">
                         <label for="drop-remove">
                           <input type="checkbox" id="drop-remove">
@@ -330,49 +299,49 @@
         themeSystem: 'bootstrap',
         //Random default events
         events: [{
-            title: 'All Day Event',
-            start: new Date(y, m, 1),
-            backgroundColor: '#f56954', //red
-            borderColor: '#f56954', //red
-            allDay: true
+            // title: 'All Day Event',
+            // start: new Date(y, m, 1),
+            // backgroundColor: '#f56954', //red
+            // borderColor: '#f56954', //red
+            // allDay: true
           },
           {
-            title: 'Long Event',
-            start: new Date(y, m, d - 5),
-            end: new Date(y, m, d - 2),
-            backgroundColor: '#f39c12', //yellow
-            borderColor: '#f39c12' //yellow
+            // title: 'Long Event',
+            // start: new Date(y, m, d - 5),
+            // end: new Date(y, m, d - 2),
+            // backgroundColor: '#f39c12', //yellow
+            // borderColor: '#f39c12' //yellow
           },
           {
-            title: 'Meeting',
-            start: new Date(y, m, d, 10, 30),
-            allDay: false,
-            backgroundColor: '#0073b7', //Blue
-            borderColor: '#0073b7' //Blue
+            // title: 'Meeting',
+            // start: new Date(y, m, d, 10, 30),
+            // allDay: false,
+            // backgroundColor: '#0073b7', //Blue
+            // borderColor: '#0073b7' //Blue
           },
           {
-            title: 'Lunch',
-            start: new Date(y, m, d, 12, 0),
-            end: new Date(y, m, d, 14, 0),
-            allDay: false,
-            backgroundColor: '#00c0ef', //Info (aqua)
-            borderColor: '#00c0ef' //Info (aqua)
+            // title: 'Lunch',
+            // start: new Date(y, m, d, 12, 0),
+            // end: new Date(y, m, d, 14, 0),
+            // allDay: false,
+            // backgroundColor: '#00c0ef', //Info (aqua)
+            // borderColor: '#00c0ef' //Info (aqua)
           },
           {
-            title: 'Birthday Party',
-            start: new Date(y, m, d + 1, 19, 0),
-            end: new Date(y, m, d + 1, 22, 30),
-            allDay: false,
-            backgroundColor: '#00a65a', //Success (green)
-            borderColor: '#00a65a' //Success (green)
+            // title: 'Birthday Party',
+            // start: new Date(y, m, d + 1, 19, 0),
+            // end: new Date(y, m, d + 1, 22, 30),
+            // allDay: false,
+            // backgroundColor: '#00a65a', //Success (green)
+            // borderColor: '#00a65a' //Success (green)
           },
           {
-            title: 'Click for Google',
-            start: new Date(y, m, 28),
-            end: new Date(y, m, 29),
-            url: 'https://www.google.com/',
-            backgroundColor: '#3c8dbc', //Primary (light-blue)
-            borderColor: '#3c8dbc' //Primary (light-blue)
+            // title: 'Click for Google',
+            // start: new Date(y, m, 28),
+            // end: new Date(y, m, 29),
+            // url: 'https://www.google.com/',
+            // backgroundColor: '#3c8dbc', //Primary (light-blue)
+            // borderColor: '#3c8dbc' //Primary (light-blue)
           }
         ],
         editable: true,

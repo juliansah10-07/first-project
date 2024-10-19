@@ -50,6 +50,14 @@ $barang_keluar = query("SELECT * FROM barang_keluar");
           <a href="calender.php" class="nav-link">Calender</a>
         </li>
       </ul>
+
+      <!-- Right navbar links -->
+      <ul class="navbar-nav ml-auto">
+          <li class="nav-item d-none d-sm-inline-block">
+              <a href="logout.php" class="nav-link" style="color: red;">Log out</a>
+          </li>
+      </ul>
+
     </nav>
     <!-- /.navbar -->
 

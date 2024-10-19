@@ -44,6 +44,14 @@ if (!isset($_SESSION["login"])) {
           <a href="calender.php" class="nav-link active">Calender</a>
         </li>
       </ul>
+
+      <!-- Right navbar links -->
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item d-none d-sm-inline-block">
+          <a href="logout.php" class="nav-link" style="color: red;">Log out</a>
+        </li>
+      </ul>
+
     </nav>
     <!-- /.navbar -->
 

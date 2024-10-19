@@ -66,147 +66,147 @@ if (isset($_POST["tambah"])) {
       <!-- Sidebar -->
       <div class="sidebar">
         <!-- Sidebar user (optional) -->
-        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <<div class="user-panel mt-3 pb-3 mb-3 d-flex">
           <div class="image">
-            <img src="App/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+            <img src="img/profile.png" class="img-circle elevation-2" alt="User Image">
           </div>
           <div class="info">
-            <a href="#" class="d-block">Alexander Pierce</a>
+            <a href="#" class="d-block"><?= $_SESSION["nama"]; ?></a>
           </div>
-        </div>
-
-        <!-- SidebarSearch Form -->
-        <div class="form-inline">
-          <div class="input-group" data-widget="sidebar-search">
-            <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-            <div class="input-group-append">
-              <button class="btn btn-sidebar">
-                <i class="fas fa-search fa-fw"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Sidebar Menu -->
-        <nav class="mt-2">
-          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <li class="nav-item">
-              <a href="tabel_barang.php" class="nav-link active">
-                <i class="bi bi-bag-fill"></i>
-                <p style="margin-left: 10px;">
-                  Tabel Barang
-                </p>
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a href="barang_masuk.php" class="nav-link">
-                <i class="bi bi-arrow-up-circle-fill"></i>
-                <p style="margin-left: 10px;">
-                  Detail Barang Masuk
-                </p>
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a href="barang_keluar.php" class="nav-link">
-                <i class="bi bi-arrow-down-circle-fill"></i>
-                <p style="margin-left: 10px;">
-                  Detail Barang Keluar
-                </p>
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a href="keuangan.php" class="nav-link">
-                <i class="bi bi-union"></i>
-                <p style="margin-left: 10px;">
-                  Detail Keuangan
-                </p>
-              </a>
-            </li>
-          </ul>
-        </nav>
-        <!-- /.sidebar-menu -->
       </div>
-      <!-- /.sidebar -->
-    </aside>
 
-    <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
-      <!-- Content Header (Page header) -->
-      <section class="content-header">
-        <div class="container-fluid">
-          <div class="row mb-2">
-            <div class="col-sm-6">
-              <h1>Tambah</h1>
-            </div>
+      <!-- SidebarSearch Form -->
+      <div class="form-inline">
+        <div class="input-group" data-widget="sidebar-search">
+          <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+          <div class="input-group-append">
+            <button class="btn btn-sidebar">
+              <i class="fas fa-search fa-fw"></i>
+            </button>
           </div>
-        </div><!-- /.container-fluid -->
-      </section>
+        </div>
+      </div>
 
-      <!-- Main content -->
-      <section class="content">
-        <div class="container-fluid">
-          <div class="row">
-            <!-- left column -->
-            <div class="col-md-12">
-              <!-- jquery validation -->
-              <div class="card card-primary">
-                <div class="card-header">
-                  <h3 class="card-title">Form Tambah Barang</h3>
-                </div>
-                <!-- /.card-header -->
-                <!-- form start -->
-                <form action="" method="post" id="quickForm">
-                  <div class="card-body">
-                    <div class="form-group">
-                      <label for="nama_barang">Nama Barang</label>
-                      <input type="text" name="nama_barang" class="form-control" id="nama_barang" placeholder="Masukan Nama Barang">
-                    </div>
-                    <div class="form-group">
-                      <label for="jumlah_barang">Jumlah Barang</label>
-                      <input type="number" name="jumlah_barang" class="form-control" id="jumlah_barang" placeholder="Masukan Jumlah Barang">
-                    </div>
-                    <div class="form-group">
-                      <label for="jenis_barang">Jenis Barang</label>
-                      <input type="text" name="jenis_barang" class="form-control" id="jenis_barang" placeholder="Masukan Jenis Barang">
-                    </div>
-                    <div class="form-group">
-                      <label for="harga_barang">Harga Barang</label>
-                      <input type="number" name="harga_barang" class="form-control" id="harga_barang" placeholder="Masukan Harga Barang">
-                    </div>
-                  </div>
-                  <!-- /.card-body -->
-                  <div class="card-footer">
-                    <button type="submit" class="btn btn-primary" name="tambah">Tambah</button>
-                  </div>
-                </form>
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <li class="nav-item">
+            <a href="tabel_barang.php" class="nav-link active">
+              <i class="bi bi-bag-fill"></i>
+              <p style="margin-left: 10px;">
+                Tabel Barang
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="barang_masuk.php" class="nav-link">
+              <i class="bi bi-arrow-up-circle-fill"></i>
+              <p style="margin-left: 10px;">
+                Detail Barang Masuk
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="barang_keluar.php" class="nav-link">
+              <i class="bi bi-arrow-down-circle-fill"></i>
+              <p style="margin-left: 10px;">
+                Detail Barang Keluar
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="keuangan.php" class="nav-link">
+              <i class="bi bi-union"></i>
+              <p style="margin-left: 10px;">
+                Detail Keuangan
+              </p>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+  </div>
+  <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Tambah</h1>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <!-- left column -->
+          <div class="col-md-12">
+            <!-- jquery validation -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Form Tambah Barang</h3>
               </div>
-              <!-- /.card -->
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form action="" method="post" id="quickForm">
+                <div class="card-body">
+                  <div class="form-group">
+                    <label for="nama_barang">Nama Barang</label>
+                    <input type="text" name="nama_barang" class="form-control" id="nama_barang" placeholder="Masukan Nama Barang">
+                  </div>
+                  <div class="form-group">
+                    <label for="jumlah_barang">Jumlah Barang</label>
+                    <input type="number" name="jumlah_barang" class="form-control" id="jumlah_barang" placeholder="Masukan Jumlah Barang">
+                  </div>
+                  <div class="form-group">
+                    <label for="jenis_barang">Jenis Barang</label>
+                    <input type="text" name="jenis_barang" class="form-control" id="jenis_barang" placeholder="Masukan Jenis Barang">
+                  </div>
+                  <div class="form-group">
+                    <label for="harga_barang">Harga Barang</label>
+                    <input type="number" name="harga_barang" class="form-control" id="harga_barang" placeholder="Masukan Harga Barang">
+                  </div>
+                </div>
+                <!-- /.card-body -->
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary" name="tambah">Tambah</button>
+                </div>
+              </form>
             </div>
-            <!--/.col (left) -->
-            <!-- right column -->
-            <div class="col-md-6">
-
-            </div>
-            <!--/.col (right) -->
+            <!-- /.card -->
           </div>
-          <!-- /.row -->
-        </div><!-- /.container-fluid -->
-      </section>
-      <!-- /.content -->
-    </div>
-    <!-- /.content-wrapper -->
-    <footer class="main-footer">
-      <strong>Copyright &copy; 2024 <a href="index.php">X Market</a>.</strong> All rights reserved.
-    </footer>
+          <!--/.col (left) -->
+          <!-- right column -->
+          <div class="col-md-6">
 
-    <!-- Control Sidebar -->
-    <aside class="control-sidebar control-sidebar-dark">
-      <!-- Control sidebar content goes here -->
-    </aside>
-    <!-- /.control-sidebar -->
+          </div>
+          <!--/.col (right) -->
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+    <strong>Copyright &copy; 2024 <a href="index.php">X Market</a>.</strong> All rights reserved.
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
   </div>
   <!-- ./wrapper -->
 

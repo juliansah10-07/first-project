@@ -304,7 +304,7 @@ function updatePassword($nip, $new_password)
     $hashed_password = password_hash($new_password, PASSWORD_BCRYPT);
     $update_sql = "UPDATE user SET password = '$hashed_password' WHERE nip = '$nip'";
     if (mysqli_query($koneksi, $update_sql)) {
-      header("Location: login.php"); // Arahkan ke halaman login
+      header("Location: login.php?password_changed=true"); // Arahkan ke halaman login
       exit();
     }
   } else {

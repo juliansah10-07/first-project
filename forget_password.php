@@ -9,6 +9,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
   if ($new_password === $confirm_password) {
     updatePassword($nip, $new_password);
+  } else {
+    echo "<script> alert('Password baru dan konfirmasi password harus sama!'); </script>";
   }
 }
 
@@ -67,7 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           </div>
           <div class="row">
             <div class="col-12">
-              <button type="submit" name="zubmit" class="btn btn-primary btn-block"> Confirm </button>
+              <button type="submit" name="submit" class="btn btn-primary btn-block"> Confirm </button>
             </div>
             <!-- /.col -->
           </div>

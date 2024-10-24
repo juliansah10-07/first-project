@@ -1,6 +1,6 @@
 <?php
 
-// Koenksi ke database
+// Koneksi ke database
 function koneksi()
 {
   return mysqli_connect("localhost", "root", "", "xmarket");
@@ -282,4 +282,34 @@ function register($data)
   mysqli_query($koneksi, $query);
 
   return mysqli_affected_rows($koneksi);
+}
+
+
+
+function updatePassword($nip, $new_password)
+{
+
+  $koneksi = koneksi();
+  // Cek koneksi
+  if (!$koneksi) {
+    die("Koneksi database gagal: " . mysqli_connect_error());
+  }
+
+  // Cari user berdasarkan NIP
+  $sql = "SELECT * FROM user WHERE nip = '$nip'";
+  $result = mysqli_query($koneksi, $sql);
+
+  if (mysqli_num_rows($result) > 0) {
+    // Jika NIP ditemukan, update password
+    $hashed_password = password_hash($new_password, PASSWORD_BCRYPT);
+    $update_sql = "UPDATE user SET password = '$hashed_password' WHERE nip = '$nip'";
+    if (mysqli_query($koneksi, $update_sql)) {
+      header("Location: login.php"); // Arahkan ke halaman login
+      exit();
+    }
+  } else {
+    // Jika NIP tidak ditemukan, kembalikan ke halaman forgotpassword dengan pesan error
+    header("Location: forgotpassword.php?error=nip_not_found");
+    exit();
+  }
 }

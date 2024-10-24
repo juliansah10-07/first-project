@@ -1,3 +1,19 @@
+<?php
+require 'functions.php';
+
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+  $nip = $_POST['nip'];
+  $new_password = $_POST['new_password'];
+  $confirm_password = $_POST['confirm_password'];
+
+  if ($new_password === $confirm_password) {
+    updatePassword($nip, $new_password);
+  }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,18 +39,18 @@
         <a href="App/index.php" class="h1"><b>X</b>Market</a>
       </div>
       <div class="card-body">
-        <p class="login-box-msg">You forgot your password? Here you can easily retrieve a new password.</p>
-        <form action="index.php" method="post">
+        <p class="login-box-msg">Ganti Password</p>
+        <form action="forget_password.php" method="post">
           <div class="input-group mb-3">
-            <input type="email" class="form-control" placeholder="Email">
+            <input type="nip" name="nip" class="form-control" placeholder="Nomor Induk Pegawai" required>
             <div class="input-group-append">
               <div class="input-group-text">
-                <span class="fas fa-envelope"></span>
+                <ion-icon name="finger-print"></ion-icon>
               </div>
             </div>
           </div>
           <div class="input-group mb-3">
-            <input type="password" class="form-control" placeholder="New Password">
+            <input type="password" name="new_password" class="form-control" placeholder="New Password" required>
             <div class="input-group-append">
               <div class="input-group-text">
                 <ion-icon name="lock-closed"></ion-icon>
@@ -42,7 +58,7 @@
             </div>
           </div>
           <div class="input-group mb-3">
-            <input type="password" class="form-control" placeholder="Confirm New Password">
+            <input type="password" name="confirm_password" class="form-control" placeholder="Confirm New Password" required>
             <div class="input-group-append">
               <div class="input-group-text">
                 <ion-icon name="lock-closed"></ion-icon>
@@ -51,7 +67,7 @@
           </div>
           <div class="row">
             <div class="col-12">
-              <button type="submit" class="btn btn-primary btn-block"> Confirm </button>
+              <button type="submit" name="zubmit" class="btn btn-primary btn-block"> Confirm </button>
             </div>
             <!-- /.col -->
           </div>

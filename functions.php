@@ -299,7 +299,7 @@ function updatePassword($nip, $new_password)
   $sql = "SELECT * FROM user WHERE nip = '$nip'";
   $result = mysqli_query($koneksi, $sql);
 
-  if (mysqli_num_rows($result) > 0) {
+  if (mysqli_num_rows($result)) {
     // Jika NIP ditemukan, update password
     $hashed_password = password_hash($new_password, PASSWORD_BCRYPT);
     $update_sql = "UPDATE user SET password = '$hashed_password' WHERE nip = '$nip'";

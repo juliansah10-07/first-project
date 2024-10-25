@@ -290,10 +290,6 @@ function updatePassword($nip, $new_password)
 {
 
   $koneksi = koneksi();
-  // Cek koneksi
-  if (!$koneksi) {
-    die("Koneksi database gagal: " . mysqli_connect_error());
-  }
 
   // Cari user berdasarkan NIP
   $sql = "SELECT * FROM user WHERE nip = '$nip'";
@@ -304,12 +300,18 @@ function updatePassword($nip, $new_password)
     $hashed_password = password_hash($new_password, PASSWORD_BCRYPT);
     $update_sql = "UPDATE user SET password = '$hashed_password' WHERE nip = '$nip'";
     if (mysqli_query($koneksi, $update_sql)) {
-      header("Location: login.php?password_changed=true"); // Arahkan ke halaman login
+      echo "<script>
+        alert('Ubah Password Berhasil');
+        document.location.href = 'login.php';
+        </script>"; // Arahkan ke halaman login
       exit();
     }
   } else {
     // Jika NIP tidak ditemukan, kembalikan ke halaman forgotpassword dengan pesan error
-    header("Location: forgotpassword.php?error=nip_not_found");
+    echo "<script>
+        alert('NIP tidak ditemukan!');
+        document.location.href = 'forget_password.php';
+        </script>";
     exit();
   }
 }

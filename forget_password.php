@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <p class="login-box-msg">Ganti Password</p>
         <form action="forget_password.php" method="post">
           <div class="input-group mb-3">
-            <input type="nip" name="nip" class="form-control" placeholder="Nomor Induk Pegawai" required>
+            <input type="nip" name="nip" class="form-control" placeholder="Nomor Induk Pegawai" required autocomplete="off">
             <div class="input-group-append">
               <div class="input-group-text">
                 <ion-icon name="finger-print"></ion-icon>
@@ -52,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </div>
           </div>
           <div class="input-group mb-3">
-            <input type="password" name="new_password" class="form-control" placeholder="New Password" required>
+            <input type="password" name="new_password" class="form-control" placeholder="New Password" required autocomplete="off">
             <div class="input-group-append">
               <div class="input-group-text">
                 <ion-icon name="lock-closed"></ion-icon>
@@ -60,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </div>
           </div>
           <div class="input-group mb-3">
-            <input type="password" name="confirm_password" class="form-control" placeholder="Confirm New Password" required>
+            <input type="password" name="confirm_password" class="form-control" placeholder="Confirm New Password" required autocomplete="off">
             <div class="input-group-append">
               <div class="input-group-text">
                 <ion-icon name="lock-closed"></ion-icon>

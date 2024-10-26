@@ -65,7 +65,7 @@ if (isset($_POST['login'])) {
 
                 <form action="" method="post">
                     <div class="input-group mb-3">
-                        <input type="text" name="nip" class="form-control" placeholder="Nomor Induk Pegawai">
+                        <input type="text" name="nip" class="form-control" placeholder="Nomor Induk Pegawai" autocomplete="off">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <ion-icon name="person-outline"></ion-icon>
@@ -73,7 +73,7 @@ if (isset($_POST['login'])) {
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="password" name="password" class="form-control" placeholder="Password">
+                        <input type="password" name="password" class="form-control" placeholder="Password" autocomplete="off">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <ion-icon name="lock-closed-outline"></ion-icon>

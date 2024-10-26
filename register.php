@@ -46,7 +46,7 @@ if (isset($_POST["register"])) {
         <p class="login-box-msg">Tambahkan anggota baru</p>
         <form action="" method="post">
           <div class="input-group mb-3">
-            <input type="text" name="nip" class="form-control" placeholder="Nomor Induk Kepegawaian" required>
+            <input type="text" name="nip" class="form-control" placeholder="Nomor Induk Kepegawaian" required autocomplete="off">
             <div class="input-group-append">
               <div class="input-group-text">
                 <ion-icon name="finger-print"></ion-icon>
@@ -54,7 +54,7 @@ if (isset($_POST["register"])) {
             </div>
           </div>
           <div class="input-group mb-3">
-            <input type="text" name="username" class="form-control" placeholder="Username" required>
+            <input type="text" name="username" class="form-control" placeholder="Username" required autocomplete="off">
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-user"></span>
@@ -62,7 +62,7 @@ if (isset($_POST["register"])) {
             </div>
           </div>
           <div class="input-group mb-3">
-            <input type="email" name="email" class="form-control" placeholder="Email" required>
+            <input type="email" name="email" class="form-control" placeholder="Email" required autocomplete="off">
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-envelope"></span>
@@ -70,7 +70,7 @@ if (isset($_POST["register"])) {
             </div>
           </div>
           <div class="input-group mb-3">
-            <input type="password" name="password" class="form-control" placeholder="Password" required>
+            <input type="password" name="password" class="form-control" placeholder="Password" required autocomplete="off">
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-lock"></span>
@@ -78,7 +78,7 @@ if (isset($_POST["register"])) {
             </div>
           </div>
           <div class="input-group mb-3">
-            <input type="password" name="confirmPass" class="form-control" placeholder="Konfirmasi Password" required>
+            <input type="password" name="confirmPass" class="form-control" placeholder="Konfirmasi Password" required autocomplete="off">
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-lock"></span>
